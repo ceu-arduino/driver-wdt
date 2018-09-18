@@ -34,19 +34,7 @@ end
 // ABSTRACTIONS
 ///////////////////////////////////////////////////////////////////////////////
 
-var bool wdt_busy = false;
-
 code/await Wdt (var int ms) -> none do
-    _ceu_assert(not outer.wdt_busy, "WDT is already in use!");
-
-    {ceu_pm_set(CEU_PM_WDT, 1);}
-    outer.wdt_busy = true;
-    do finalize with
-        //wdt_disable();
-        outer.wdt_busy = false;
-        {ceu_pm_set(CEU_PM_WDT, 0);}
-    end
-
     loop do
         if ms <= 0 then
             break;

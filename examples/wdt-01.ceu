@@ -1,11 +1,11 @@
-#include "gpio.ceu"
+#include "out.ceu"
 #include "wdt.ceu"
 
-output high/low PIN_13;
+output high/low OUT_13;
 
 loop do
-    emit PIN_13(high);
+    emit OUT_13(high);
     await Wdt(5000);
-    emit PIN_13(low);
+    emit OUT_13(low);
     await Wdt(200);
 end
