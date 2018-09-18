@@ -1,5 +1,7 @@
 # Watchdog Timer (WDT)
 
+*NOTE: Only a single WDT can be active at anytime.*
+
 ### Includes
 
 ```
